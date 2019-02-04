@@ -18,3 +18,6 @@ chmod +x setup_android_studio.sh
 ```
 ./setup_android_studio.sh
 ```
+## Fork it
+
+Fork the script and make it yours.
