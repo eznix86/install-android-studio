@@ -8,12 +8,12 @@ This is a bash script for any Debian based Distros (Ubuntu [Lubuntu, Xubuntu], E
 git clone git@github.com:theArtechnology/install-android-studio.git
 ```
 
-### To make the script executable
+### Make it an executable
 
 ```
 chmod +x setup_android_studio.sh
 ```
-### To run the script
+### Run the script
 
 ```
 ./setup_android_studio.sh
