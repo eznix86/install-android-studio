@@ -61,6 +61,11 @@ install_flutter () {
         fi
     fi
     echo -e "${GREEN} Success !${NC}"
+    echo -e "\n${BLUE}Upgrade Flutter${NC}"
+    flutter upgrade
+    echo -e "\n${BLUE}Executing Flutter Doctor${NC}"
+    flutter doctor
+
 }
 
 
@@ -90,7 +95,7 @@ done
 
 # download android studio if needed
 
-if [ ! -f $DOWNLOADS/android-studio* ]; then
+if [ ! -f $DOWNLOADS/android-studio* ] && [[  ! -d ${HOME}/android-studio* ]]; then
     (cd $DOWNLOADS; wget $STUDIO_URL)
     #verify download finished
     if [ ! -f $DOWNLOADS/android-studio* ]; then
@@ -135,7 +140,11 @@ ANDROID_HOME=$(cat $BASHRC | grep "ANDROID_HOME")
 
 if [ -z "$ANDROID_HOME"  ]; then
     echo -e "\n# Android Studio environment variables" >> $BASHRC
-    echo "export ANDROID_HOME=$HOME/Android/Sdk" >>  $BASHRC
+    echo "export ANDROID_SDK_ROOT=$HOME/Android/Sdk" >>  $BASHRC
+    echo "export ANDROID_HOME=$ANDROID_SDK_ROOT" >>  $BASHRC
+
+    source $HOME/.bashrc
+
     echo "export PATH=\$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools" >>  $BASHRC
     if [ ! -z "$ANDROID_HOME"  ]; then
         echo -e "${RED}ANDROID_HOME not set. Android Environment failed ?${NC}"
@@ -161,3 +170,4 @@ done
 echo -e "${GREEN}-- SETUP COMPLETED --\n${NC}"
 
 
+echo -e "${RED}\nNOTE: If you have issue with Android Toolchain, try executing Flutter doctor outside this script !${NC}\n\n"
