@@ -54,7 +54,7 @@ install_flutter () {
 
     if [ -z "$FLUTTER_ENV"  ]; then
         echo -e "\n# Flutter environment variables" >> $BASHRC
-        echo "export PATH=${PATH}:$HOME/Android/flutter/bin" >>  $BASHRC
+        echo "export PATH=\$PATH:$HOME/Android/flutter/bin" >>  $BASHRC
         if [ ! -z "$FLUTTER_ENV"  ]; then
             echo -e "${RED}Flutter environment variables not set. failed ?${NC}"
             exit
@@ -136,7 +136,7 @@ ANDROID_HOME=$(cat $BASHRC | grep "ANDROID_HOME")
 if [ -z "$ANDROID_HOME"  ]; then
     echo -e "\n# Android Studio environment variables" >> $BASHRC
     echo "export ANDROID_HOME=$HOME/Android/Sdk" >>  $BASHRC
-    echo "export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools" >>  $BASHRC
+    echo "export PATH=\$PATH:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools" >>  $BASHRC
     if [ ! -z "$ANDROID_HOME"  ]; then
         echo -e "${RED}ANDROID_HOME not set. Android Environment failed ?${NC}"
         exit
