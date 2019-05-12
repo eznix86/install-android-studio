@@ -18,6 +18,6 @@ chmod +x setup_android_studio.sh
 ```
 ./setup_android_studio.sh
 ```
-## Fork it
+## Fork it and make and do pull requests
 
-Fork the script and make it yours.
+Fork the script, and do pull requests
